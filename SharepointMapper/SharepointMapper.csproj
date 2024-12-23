@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Camlex.Client.dll" Version="5.4.3" />
       <PackageReference Include="Microsoft.SharePointOnline.CSOM" Version="16.1.25611.12000" />
     </ItemGroup>
 
