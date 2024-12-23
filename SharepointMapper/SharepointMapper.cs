@@ -17,19 +17,12 @@ internal class SharepointMapper(ClientContext context)
     /// <typeparam name="T">The type representing the SharePoint item with the SharepointListAttribute.</typeparam>
     /// <returns>The SharePoint list associated with the type T.</returns>
     /// <exception cref="ArgumentException">
-    /// Thrown when type T does not have the SharepointListAttribute, or it does not implement ISharepointItem, or both Title and Id properties are invalid.
+    /// Thrown when type T does not have the SharepointListAttribute, or both Title and Id properties are invalid.
     /// </exception>
     public List GetListForSharepointItem<T>()
     {
         Type spEntityType = typeof(T);
-    
-        if (!typeof(ISharepointItem).IsAssignableFrom(spEntityType))
-        {
-            throw new ArgumentException(
-                $"The type '{spEntityType.FullName}' must implement the ISharepointItem interface to be used with this method."
-            );
-        }
-    
+        
         var spAttr = spEntityType.GetCustomAttribute<SharepointListAttribute>();
 
         if (spAttr == null)
