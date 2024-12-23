@@ -9,8 +9,6 @@ namespace SharepointMapper;
 
 internal class SharepointMapper(ClientContext context)
 {
-    private ClientContext _context = context;
-
     /// <summary>
     /// Returns SharePoint List for the item (via attribute SharepointList).
     /// </summary>
@@ -34,12 +32,12 @@ internal class SharepointMapper(ClientContext context)
 
         if (!string.IsNullOrWhiteSpace(spAttr.Title))
         {
-            return _context.Web.Lists.GetByTitle(spAttr.Title);
+            return context.Web.Lists.GetByTitle(spAttr.Title);
         }
 
         if (spAttr.Id != Guid.Empty)
         {
-            return _context.Web.Lists.GetById(spAttr.Id);
+            return context.Web.Lists.GetById(spAttr.Id);
         }
 
         throw new InvalidOperationException(
