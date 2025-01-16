@@ -12,6 +12,8 @@
         <PackageTags>Sharepoint.Online</PackageTags>
         <Description>Is a lightweight mapper for Sharepoint online lists (CSOM).</Description>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <AssemblyVersion>1.0.0.1</AssemblyVersion>
+        <FileVersion>1.0.0.1</FileVersion>
     </PropertyGroup>
 
     <ItemGroup>

@@ -22,6 +22,7 @@ public class SharepointRepository
     /// </summary>
     public List<T> Query<T>(Expression<Func<T, bool>> filter) where T : ISharepointItem, new()
     {
+        throw new NotImplementedException();
         var camlexEpressionFilter = new ExpressionConverter().Visit(filter) as Expression<Func<ListItem, bool>>;
 
         List<string> fieldsToLoad = _mapper.GetMappedFields<T>();
