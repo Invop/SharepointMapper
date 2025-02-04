@@ -39,3 +39,6 @@ public class SpProduct : ISharepointItem
     public FieldLookupValue LookupField { get; set; }
 }
 ```
+Log:
+04.02.2025 :
+1) Modified SharePointListAttribute to parse input as either a Title or a GUID

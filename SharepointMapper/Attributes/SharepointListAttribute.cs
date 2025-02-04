@@ -1,16 +1,25 @@
 ﻿namespace SharepointMapper.Attributes;
 
 /// <summary>
-/// Maps class to Sharepoint list by Title, Guid
+/// Maps class to SharePoint list by Title or Guid.
 /// </summary>
 [AttributeUsage(AttributeTargets.Class)]
-public class SharepointListAttribute(string title) : Attribute
+public class SharepointListAttribute : Attribute
 {
-    public string Title { get; private set; } = title;
+    public string Title { get; private set; } = string.Empty;
     public Guid Id { get; private set; }
 
-    public SharepointListAttribute(Guid id) : this(string.Empty)
+    public SharepointListAttribute(string titleOrId)
     {
-        Id = id;
+        if (Guid.TryParse(titleOrId, out Guid parsedId))
+        {
+            Id = parsedId;
+        }
+        else
+        {
+            Title = titleOrId;
+        }
+
     }
+    
 }
