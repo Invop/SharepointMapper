@@ -40,5 +40,7 @@ public class SpProduct : ISharepointItem
 }
 ```
 Log:
-04.02.2025 :
+# 04.02.2025 :
 1) Modified SharePointListAttribute to parse input as either a Title or a GUID
+# 21.02.2025 :
+1) Updated `GetTaxonomyFieldValue` and `GetTaxonomyFieldValueCollection` methods to return `null` if the field value is `null`, instead of throwing exceptions. 

@@ -10,7 +10,7 @@ public static class ListItemExtensions
     private const string ChildItems = "_Child_Items_";
     private const string ObjectType = "_ObjectType_";
 
-    public static TaxonomyFieldValue GetTaxonomyFieldValue(this ListItem item,
+    public static TaxonomyFieldValue? GetTaxonomyFieldValue(this ListItem item,
         string internalFieldName)
     {
         ArgumentNullException.ThrowIfNull(item);
@@ -22,6 +22,7 @@ public static class ListItemExtensions
 
         return fieldValue switch
         {
+            null => null,
             TaxonomyFieldValue taxonomyFieldValue => taxonomyFieldValue,
             Dictionary<string, object> dictionary => ConvertDictionaryToTaxonomyFieldValue(dictionary),
             _ => throw new InvalidOperationException(
@@ -29,7 +30,7 @@ public static class ListItemExtensions
         };
     }
 
-    public static ReadOnlyCollection<TaxonomyFieldValue> GetTaxonomyFieldValueCollection(
+    public static ReadOnlyCollection<TaxonomyFieldValue>? GetTaxonomyFieldValueCollection(
         this ListItem item, string internalFieldName)
     {
         ArgumentNullException.ThrowIfNull(item);
@@ -41,6 +42,7 @@ public static class ListItemExtensions
 
         return fieldValue switch
         {
+            null => null,
             TaxonomyFieldValueCollection taxonomyFieldValueCollection => new ReadOnlyCollection<TaxonomyFieldValue>(
                 taxonomyFieldValueCollection.ToList()),
             Dictionary<string, object> dictionary => new ReadOnlyCollection<TaxonomyFieldValue>(

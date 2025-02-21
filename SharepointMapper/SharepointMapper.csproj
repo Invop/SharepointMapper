@@ -12,9 +12,11 @@
         <PackageTags>Sharepoint.Online</PackageTags>
         <Description>Is a lightweight mapper for Sharepoint online lists (CSOM).</Description>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
-        <AssemblyVersion>1.0.0.2</AssemblyVersion>
-        <FileVersion>1.0.0.2</FileVersion>
-        <Version>1.0.2</Version>
+        <AssemblyVersion>1.0.0.3</AssemblyVersion>
+        <FileVersion>1.0.0.3</FileVersion>
+        <Version>1.0.3</Version>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageReleaseNotes>Updated `GetTaxonomyFieldValue` and `GetTaxonomyFieldValueCollection` methods to return `null` if the field value is `null`, instead of throwing exceptions. </PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>
